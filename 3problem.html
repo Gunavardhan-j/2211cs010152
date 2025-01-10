@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Eligibility Check</title>
+</head>
+<body>
+  <h2>Attendance Eligibility Calculator</h2>
+
+  <script>
+    let a = parseInt(prompt("Enter the total no. of working days: "));
+    let b = parseInt(prompt("Enter the no. of days you were absent: "));
+
+    if (isNaN(a) || isNaN(b) || a <= 0 || b < 0 || b > a) {
+      document.write("Invalid input.Enter valid numbers.");
+    } else {
+      let c = a - b;
+      let d = (c / a) * 100;
+
+      if (d < 75) {
+        document.write("You are not eligible to write the exam as your attendance percentage is " + d.toFixed(2) + "%");
+      } else {
+        document.write("You are eligible to write the exam as your attendance percentage is " + d.toFixed(2) + "%");
+      }
+    }
+  </script>
+</body>
+</html>
