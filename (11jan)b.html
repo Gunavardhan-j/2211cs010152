@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Checker with Alerts</title>
+</head>
+<body>
+    <script>
+        let input = prompt("Enter a number:");
+        let num = Number(input); 
+        if (isNaN(num)) {
+            alert("Invalid input. Please enter a valid number.");
+            console.log("Invalid input. Please enter a valid number.");
+        } else if (num > 0) {
+            alert("The number is positive.");
+            console.log("The number is positive.");
+        } else if (num === 0) {
+            alert("The number is zero.");
+            console.log("The number is zero.");
+        } else if (num < 0) {
+            alert("The number is negative.");
+            console.log("The number is negative.");
+        }
+    </script>
+</body>
+</html>
