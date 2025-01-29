@@ -1,0 +1,18 @@
+29/01/25
+
+Methods of DOM:
+•	getElementByClassName(): returns all the elements having same class name.
+•	getElementByClassName():returns an html collection object. An Html Collection is an array like list of html elements. The length property provides the size of the collection.
+•	getElementsByTagName: this method takes a tag name as string and returns an HTML collection object.
+•	getElementsById
+•	getElementsByClass
+
+
+Getting Elements by using querySelector methods:
+The document querySelector method selects an HTML elements by tagname, by id, by class name
+QuerySelectorAll:  it selects all the html elements by its class name and tag name.
+Manipulating Elements:
+To create HTML Elements:
+•	createElement()- create a new element.
+              Method: document.createElement()
+•	single element:
