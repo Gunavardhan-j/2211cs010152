@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        
+        let title 
+for(let i=0;i<3;i++){
+title=document.createElement('h2')
+title.className="tt"
+title.textContent=i
+console.log(title)
+}
+
+//to create multiple elements
+const titles=["person_a","person_b","person_c"]
+for(let i=0;i<titles.length;i++){
+let title=document.createElement("h1");
+title.className="a"
+title.textContent=titles[i]
+console.log(title)
+}
+    </script>
+    
+</body>
+</html>

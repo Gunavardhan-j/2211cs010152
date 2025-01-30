@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">
+        <h1>sai</h1>
+        <h1>guna</h1>
+        
+    </div>
+
+    <div id="b">
+        <h1>person_a</h1>
+        <h1>person_b</h1>
+        
+    </div>
+
+    <script>
+        let n=document.createElement("h2")
+        n.textContent="guna is the team lead"
+
+        //get the parent element
+        let p=document.getElementById("b")
+        console.log(p.innerText)
+
+        //append the new element to the parent node
+        p.appendChild(n)
+
+        //log the inner text of the parent
+        console.log(p)
+        console.log(p.innerText)   
+
+
+
+    </script>
+    
+</body>
+</html>

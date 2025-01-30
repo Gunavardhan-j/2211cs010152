@@ -1,0 +1,88 @@
+30/01/25
+
+DOM:
+--get element by id,class,tag
+--queryselector methods
+--to create a element by using js:
+1)single element
+2)multiple element
+
+Ex1:-
+let title 
+for(let i=0;i<3;i++){
+title=document.createElement('h2')
+title.className="tt"
+title.textContent=i
+console.log(title)
+#0,1,2
+
+Ex2:-
+to create multiple elements:
+
+const titles=["person_a","person_b","person_c"]
+for(let i=0;i<titles.length;i++){
+let title=document.createElement('h1");
+title.className="a"
+title.textContent=titles[i]
+console.log(title)
+}
+
+
+removing a child element from a parent node:
+
+<h1>removing child node</h1>
+<h2>iam guna</h2>
+<ul>
+<li>sai</li>
+<li>vardhan</li>
+<li>j</li>
+</ul>
+
+<script>
+const ul = document.querySelector('ul')
+const lists = document.querySelectorAll('li')
+for(const list of lists){
+console.log(`Removing:${list.textContent}`)
+ul.removeChild(list)
+}
+</script>
+
+
+to append a new element:
+append()--to append a new element to parent node
+
+
+ex:
+<body>
+    <div id="a">
+        <h1>sai</h1>
+        <h1>guna</h1>
+        
+    </div>
+
+    <div id="b">
+        <h1>person_a</h1>
+        <h1>person_b</h1>
+        
+    </div>
+
+    <script>
+        let n=document.createElement("h2")
+        n.textContent="guna is the team lead"
+
+        //get the parent element
+        let p=document.getElementById("b")
+        console.log(p.innerText)
+
+        //append the new element to the parent node
+        p.appendChild(n)
+
+        //log the inner text of the parent
+        console.log(p)
+        console.log(p.innerText)   
+
+
+
+    </script>
+    
+</body>
