@@ -1,0 +1,27 @@
+31/01/25
+
+DOM:
+
+1)create a new element(Single,multiple)
+2)append a element inside the parent code
+add the element at the end
+3)InsertBefore(): insert a new node before an existing node or child node of a specific parent code
+--this requires a reference to both the new node and the existing node you want to insert before
+
+ex:
+  
+     //to insert rahul before ram
+    let n=document.createElement("h1")
+        n.innerText="rahul"
+
+    let p=document.getElementById('a')
+    let l=document.getElementById('r')
+    p.insertBefore(n ,l)
+
+    //to insert pavani before ravi
+    let nn=document.createElement('h1')
+    nn.innerText="pavani"
+
+    let pp=document.getElementById('a')
+    let ll=document.getElementById('rr')
+    p.insertBefore(nn ,ll)
