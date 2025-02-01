@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//you are tasked with building a system to check whether a person is eligible to vote.the system follows these rules:
+//1.a person must be atleast 18 years old to vote
+//2.if the person is a citizen,they are eligible to vote
+//3.if the person is not a citizen but has passed a citizenship test,they are eligible to vote
+//4.if the person is under 18,they cannot vote
+let age = prompt("Enter the age");
+let citizen = prompt("Enter the citizenship");
+let cTest = prompt("Citizenship result");
+
+if((age >= 18) && (citizen=="indian"||cTest =="passed")){
+    document.write("eligible for voting");
+}
+else{
+    document.write("not eligible to vote");
+}
+
+
+
+//an online store offers a discount system based on the following conditions:s
+//1.a customer who spends more than rs.100 gets a 20% discount.
+//2.a customer who spends more than rs.50 but less than or equal to rs.100 gets a 10% discount.
+//3.if the customer is a premium member ,they receive an extra 5% discount
+let amount = prompt("enter the amount spent:"); 
+let premium = prompt("are you a premium member?");
+let discount = (amount > 100) ? 20 : (amount > 50 && amount <= 100) ? 10 : 0;
+if (premium === "yes") {    discount += 5;
+}
+document.write("total discount: " + discount + "%<br>");
+document.write("final amount:" + (amount - (amount * discount / 100)).toFixed(2));
+
+
+
+
+    </script>
+    
+</body>
+</html>
