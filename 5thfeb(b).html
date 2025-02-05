@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Example</title>
+    <!-- Include Babel CDN for JSX support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <!-- Include React and ReactDOM (for React 18 or higher) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.0.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.0.0/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        const n = 10;
+        const m = <h1>React is {n * 2} times better than React JS</h1>;
+
+        // Create a root and render the JSX element
+        const root = ReactDOM.createRoot(document.getElementById('app'));
+        root.render(m);
+    </script>
+
+
+    <!-- <script type="text/babel">
+        const element = <h1 className="a">Hello, JSX!</h1>;
+        ReactDOM.render(element, document.getElementById('app'));
+    </script> -->
+    <!-- <script> 
+        const e = React.createElement(
+            'h1',{id:"a"},"i am guna"
+        );
+        ReactDOM.render(e, document.getElementById('app'));
+    </script> -->
+</body>
+</html>
