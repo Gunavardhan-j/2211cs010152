@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Theme Toggler</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        const ThemeToggler = () => {
+            const [theme, setTheme] = useState('light');
+
+            const toggleTheme = () => {
+                setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+            };
+
+            return (
+                <div style={{
+                    backgroundColor: theme === 'light' ? 'white' : 'black',
+                    color: theme === 'light' ? 'black' : 'white',
+                    textAlign: 'center',
+                    padding: '20px'
+                }}>
+                    <h1>The Current Theme is {theme}</h1>
+                    <button onClick={toggleTheme}>Toggle Theme</button>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ThemeToggler />);
+    </script>
+</body>
+</html>
