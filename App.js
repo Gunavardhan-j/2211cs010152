@@ -1,30 +1,20 @@
-import React from 'react';
-import Greeting from './Greeting';
+import React, { useState } from 'react';
+import ChildA from './ChildA';
+import ChildB from './ChildB';
 
-function App() {
-  const isLoggedIn = true;
+const Parent = () => {
+  const [count, setCount] = useState(0);
 
-  return (
-    <div className="App">
-      <Greeting isLoggedIn={isLoggedIn} />
-      <FruitList />
-    </div>
-  );
-}
-
-const FruitList = () => {
-  const fruits = ['apple', 'cherry', 'orange'];
+  const increment = () => {
+    setCount(c => c + 1);
+  };
 
   return (
     <div>
-      <h1>Fruits List</h1>
-      <ul>
-        {fruits.map((fruit, index) => (
-          <li key={index}>{fruit}</li>
-        ))}
-      </ul>
+      <ChildA />
+      <ChildB count={count} increment={increment} />
     </div>
   );
 };
 
-export default App;
+export default Parent;
