@@ -1,20 +1,53 @@
-import React, { useState } from 'react';
-import ChildA from './ChildA';
-import ChildB from './ChildB';
+import React, { useReducer } from 'react';
 
-const Parent = () => {
-  const [count, setCount] = useState(0);
+function appleReducer(state = 3, action) {
+  switch (action.type) {
+    case 'ADD_APPLE':
+      return state + 1;
+    case 'EAT_APPLE':
+      return state - 1;
+    default:
+      return state;
+  }
+}
 
-  const increment = () => {
-    setCount(c => c + 1);
-  };
+function App() {
+  const [state, dispatch] = useReducer(appleReducer, 3);
 
   return (
-    <div>
-      <ChildA />
-      <ChildB count={count} increment={increment} />
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <h1 style={{ color: 'darkorange' }}>APPLE Counter</h1>
+      <p style={{color: 'bule' }}> Number of APPLES: {state}</p>
+      <button
+        onClick={() => dispatch({ type: 'ADD_APPLE' })}
+        style={{
+          backgroundColor: 'white',
+          color: 'black',
+          padding: '10px 20px',
+          margin: '10px',
+          border: 'none',
+          borderRadius: '20px',
+          cursor: 'pointer',
+        }}
+      >
+        ADD APPLE
+      </button>
+      <button
+        onClick={() => dispatch({ type: 'EAT_APPLE' })}
+        style={{
+          backgroundColor: 'green',
+          color: 'black',
+          padding: '10px 20px',
+          margin: '10px',
+          border: 'none',
+          borderRadius: '20px',
+          cursor: 'pointer',
+        }}
+      >
+        EAT APPLE
+      </button>
     </div>
   );
-};
+}
 
-export default Parent;
+export default App;
