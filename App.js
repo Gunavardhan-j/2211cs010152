@@ -21,7 +21,7 @@ function App() {
       <button
         onClick={() => dispatch({ type: 'ADD_APPLE' })}
         style={{
-          backgroundColor: 'white',
+          backgroundColor: 'red',
           color: 'black',
           padding: '10px 20px',
           margin: '10px',
