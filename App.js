@@ -1,53 +1,70 @@
-import React, { useReducer } from 'react';
+//17-02-2025
 
-function appleReducer(state = 3, action) {
-  switch (action.type) {
-    case 'ADD_APPLE':
-      return state + 1;
-    case 'EAT_APPLE':
-      return state - 1;
-    default:
-      return state;
+
+
+//function App(){
+// const handleClick=()=>{
+// alert("Button clicked")
+//};
+// return(
+//   <button onClick={handleClick}>Click Me</button>
+// )
+//}
+//export default App;
+
+
+
+
+
+// import React ,{useState}from 'react'
+
+// function App(){
+//   const[text,setText]=useState("")
+//   //initially the value is set as empty string
+
+//   const handleChange=(event)=>{
+//     setText(event.target.value)
+//     //update the text state with the value input field
+//   }
+//   return(
+//     <div>
+//       <input type='text' value={text} onChange={handleChange}/>
+//       <p>your text:{text}</p>
+//     </div>
+//   )
+// }
+// export default App;
+
+
+
+
+import React,{ useState} from "react";
+
+function App(){
+  const[isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter=()=>{
+    setIsHovered(true);
   }
-}
+  const handleMouseLeave=()=>{
+    setIsHovered(false);
+  }
 
-function App() {
-  const [state, dispatch] = useReducer(appleReducer, 3);
+  return(
+    <div>
+      <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+      style={{backgroundColor:isHovered ? 'lightblue':'lightgray',color:isHovered ? 'white':'black'}}
+      >Hover</button>
 
-  return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h1 style={{ color: 'darkorange' }}>APPLE Counter</h1>
-      <p style={{color: 'bule' }}> Number of APPLES: {state}</p>
-      <button
-        onClick={() => dispatch({ type: 'ADD_APPLE' })}
-        style={{
-          backgroundColor: 'red',
-          color: 'black',
-          padding: '10px 20px',
-          margin: '10px',
-          border: 'none',
-          borderRadius: '20px',
-          cursor: 'pointer',
-        }}
-      >
-        ADD APPLE
-      </button>
-      <button
-        onClick={() => dispatch({ type: 'EAT_APPLE' })}
-        style={{
-          backgroundColor: 'green',
-          color: 'black',
-          padding: '10px 20px',
-          margin: '10px',
-          border: 'none',
-          borderRadius: '20px',
-          cursor: 'pointer',
-        }}
-      >
-        EAT APPLE
-      </button>
+      {isHovered && <p>Mouse is over the button</p>}
     </div>
-  );
+  )
 }
-
 export default App;
+
+
+
+
+
+
+
+
