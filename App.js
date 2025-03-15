@@ -1,99 +1,58 @@
-//17-02-2025
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
+function App() {
+    const [events, setEvents] = useState([]);
+    const [name, setName] = useState('');
+    const [date, setDate] = useState('');
+    const [location, setLocation] = useState('');
+    const [error, setError] = useState('');
 
-//function App(){
-// const handleClick=()=>{
-// alert("Button clicked")
-//};
-// return(
-//   <button onClick={handleClick}>Click Me</button>
-// )
-//}
-//export default App;
+    useEffect(() => {
+        axios.get('http://localhost:5000/events')
+            .then(res => setEvents(res.data))
+            .catch(err => console.log(err));
+    }, []);
 
+    const addEvent = () => {
+        setError(''); // Reset error message
+        axios.post('http://localhost:5000/events/add', { name, date, location })
+            .then(res => {
+                setEvents([...events, res.data]);
+                setName('');
+                setDate('');
+                setLocation('');
+            })
+            .catch(err => {
+                setError('Failed to add event. Please try again.'); // Set error message on failure
+                console.log(err);
+            });
+    };
 
+    const deleteEvent = (id) => {
+        axios.delete(`http://localhost:5000/events/${id}`)
+            .then(() => setEvents(events.filter(event => event._id !== id)))
+            .catch(err => console.log(err));
+    };
 
-// import React ,{useState}from 'react'
-
-// function App(){
-//   const[text,setText]=useState("")
-//   //initially the value is set as empty string
-
-//   const handleChange=(event)=>{
-//     setText(event.target.value)
-//     //update the text state with the value input field
-//   }
-//   return(
-//     <div>
-//       <input type='text' value={text} onChange={handleChange}/>
-//       <p>your text:{text}</p>
-//     </div>
-//   )
-// }
-// export default App;
-
-
-
-
-// import React,{ useState} from "react";
-
-// function App(){
-//   const[isHovered, setIsHovered] = useState(false);
-//   const handleMouseEnter=()=>{
-//     setIsHovered(true);
-//   }
-//   const handleMouseLeave=()=>{
-//     setIsHovered(false);
-//   }
-
-//   return(
-//     <div>
-//       <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
-//       style={{backgroundColor:isHovered ? 'lightblue':'lightgray',color:isHovered ? 'white':'black'}}
-//       >Hover</button>
-
-//       {isHovered && <p>Mouse is over the button</p>}
-//     </div>
-//   )
-// }
-// export default App;
-
-
-
-
-
-
-
-
-
-
-//18-02-2025
-import React,{useState} from 'react';
-import './App.css';
-function App(){
-  const[key,setKey]=useState("");
-  const handleKeyDown=(event)=>{
-    setKey(event.key);
-  };
-  return(
-    <div className="app">
-      <h1>Welcome to Sai It solutions
-      </h1>
-      {key&&<h2>Pressed key:{key}</h2>}
-      <input type="text" onKeyDown={handleKeyDown} placeholder="pressed here"/>
-    </div>
-  )
+    return (
+        <div style={{ textAlign: "center", padding: "20px" }}>
+            <h1>Event Management</h1>
+            <input type="text" placeholder="Event Name" value={name} onChange={(e) => setName(e.target.value)} />
+            <input type="text" placeholder="Date" value={date} onChange={(e) => setDate(e.target.value)} />
+            <input type="text" placeholder="Location" value={location} onChange={(e) => setLocation(e.target.value)} />
+            {error && <p style={{ color: 'red' }}>{error}</p>} // Display error message
+            <button onClick={addEvent} disabled={!name || !date || !location}>Add Event</button> // Disable button if fields are empty
+            <ul>
+                {events.map(event => (
+                    <li key={event._id}>
+                        {event.name} - {event.date} - {event.location}
+                        <button onClick={() => deleteEvent(event._id)}>Delete</button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 }
+
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
